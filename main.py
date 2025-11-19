@@ -66,14 +66,28 @@ def calculate_similarity_bert(text1, text2):
 def get_report(resume, job_desc):
     try:
         prompt = f"""
-        You are an expert AI Resume Evaluator.
-        Compare the following resume and job description and return feedback as bullet points.
+        You are an AI Resume Evaluator.
 
-        Format strictly like this:
-        - Skills Matched: ...
-        - Missing Skills: ...
-        - Partial Matches: ...
-        - Suggestions: ...
+        Compare the resume and job description.
+        Return ONLY very short bullet points (max 3–5 words each).
+
+        STRICT FORMAT:
+
+        - Skills Matched:
+        • <3–5 short bullets>
+        - Missing Skills:
+        • <3–5 short bullets>
+        - Partial Matches:
+        • <3–5 short bullets>
+        - Suggestions:
+        • <3–5 short bullets>
+
+        Rules:
+        • No sentences
+        • No explanations
+        • No paragraphs
+        • ONLY minimal bullets
+        • MAX 5 words per bullet
 
         Resume:
         {resume}
